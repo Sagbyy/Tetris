@@ -1,6 +1,6 @@
 public class Map {
 
-    public static void socle(String[][] tableau) {
+    public static void socle(String[][] tableau, int colonne) {
 
         // Le socle dépendera de la taille choisit par le joueur
         for (int x = 0; x < tableau.length; x++) {
@@ -13,7 +13,7 @@ public class Map {
 
         // Le fond du socle
         System.out.print(" ");
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < colonne; i++) {
             System.out.print("‾");
         }
     }
