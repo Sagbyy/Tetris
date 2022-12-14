@@ -31,7 +31,7 @@ public class Main {
 do {
     // Choisit aléatoirement une formes
 //            int f = 1 + (int)(Math.random() * ((6)+1));
-    int f = 1;
+    int f = 3;
 
 
 
@@ -69,7 +69,7 @@ do {
             col = scanner.nextInt();
         } while (col < 0 || col > 20);
 
-        Formes.tetriminoO(tableau, 10, col);
+        Formes.tetriminoO(tableau, Verification.verificationTetriminoO(tableau, col), col);
     } else if (f == 3) {
         System.out.println("La forme est le T. \n\n ***\n  * \n\n");
         System.out.println("Appuyez sur:\n1 pour tourner la forme de 90°\n2 pour tourner la forme de 180°\n3 pour tourner la forme de 270°\n(sinon 0)");
@@ -83,7 +83,7 @@ do {
                 col = scanner.nextInt();
             } while (col < 0 || col > 20);
 
-            Formes.tetriminoT1(tableau, 10, col);
+            Formes.tetriminoT1(tableau, Verification.verificationTetriminoT(tableau, col), col);
         } else if (rotation == 2) {
             // Demande d'une colonne en fonction de la forme
             do {
