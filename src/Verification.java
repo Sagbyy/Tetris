@@ -8,19 +8,19 @@ public class Verification {
         int x = 0;
 
         // Tant qu'il y a de l'espace dans sa colonne alors elle passe à la ligne suivante
-        while (tab[x][col] == " " && x != 10) {
+        while (tab[x][col].equals(" ") && x != 10) {
             x++;
         }
 
         // Boucle pour remonter la ligne au cas où sa largeur fusionne avec une autre forme
         for (int j = 1; j < 4; j++) {
-            while (tab[x][col + j] == "*") {
+            while (tab[x][col + j].equals("*")) {
                 x--;
             }
         }
 
         // Condition pour éviter la superposition
-        if (tab[x][col] == "*") {
+        if (tab[x][col].equals("*")) {
             x--;
         }
 
@@ -34,12 +34,12 @@ public class Verification {
         int x = 0;
 
         // Tant qu'il y a de l'espace sous la ligne alors elle descend
-        while(tab[x][col] == " " && x != 10) {
+        while(tab[x][col].equals(" ") && x != 10) {
             x++;
         }
 
         // Condition pour éviter la superposition
-        if (tab[x][col] == "*"){
+        if (tab[x][col].equals("*")){
             x--;
         }
 
@@ -53,13 +53,13 @@ public class Verification {
         int x = 0;
 
         // Tant qu'il y a de l'espace dans sa colonne et colonne+1 alors elle passe à la ligne suivante
-        while(tab[x][col] == " " && tab[x][col+1] == " " && x != 10) {
+        while(tab[x][col].equals(" ") && tab[x][col+1].equals(" ") && x != 10) {
             x++;
         }
 
         // Boucle pour remonter la ligne au cas où sa largeur fusionne avec une autre forme
         for (int j = 0; j < 2; j++) {
-            while(tab[x][col + j] == "*") {
+            while(tab[x][col + j].equals("*")) {
                 x--;
             }
         }
@@ -69,20 +69,38 @@ public class Verification {
 
     public static int verificationTetriminoT(String[][] tab, int col) {
 
+        // Début de la première ligne
         int x = 0;
 
-        while (tab[x][col] == " " && tab[x + 1][col] == " " && tab[x][col + 2] == " " && x != 10) {
+        // Tant qu'il y a de l'espace dans sa ligne alors elle passe à la ligne suivante
+        while (tab[x][col].equals(" ") && tab[x][col+2].equals(" ") && x != 10) {
             x++;
         }
 
-        for (int i = 0; i < 3; i++) {
-            while (tab[x][col+i] == "*") {
-                x--;
-            }
+        // Boucle pour remonter la ligne au cas où la colonne du mileu se fusionne
+        while (tab[x][col + 1].equals("*")) {
+            x--;
         }
+
         return x;
     }
 
+    public static int verificationTetriminoT1(String[][] tab, int col) {
+
+        // Début de la première ligne
+        int x = 0;
+
+        // Tant qu'il y a de l'espace sous la ligne alors elle descend
+        while(tab[x][col+1].equals(" ") && x != 10) {
+            x++;
+        }
+
+        // Condition pour éviter la superposition
+        if (tab[x][col+1].equals("*")){
+            x--;
+        }
 
 
+        return x;
+    }
 }

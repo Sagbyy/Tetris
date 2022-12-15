@@ -83,7 +83,7 @@ do {
                 col = scanner.nextInt();
             } while (col < 0 || col > 20);
 
-            Formes.tetriminoT1(tableau, Verification.verificationTetriminoT(tableau, col), col);
+            Formes.tetriminoT1(tableau, 10, col);
         } else if (rotation == 2) {
             // Demande d'une colonne en fonction de la forme
             do {
@@ -107,7 +107,7 @@ do {
                 col = scanner.nextInt();
             } while (col < 0 || col > 19);
 
-            Formes.tetriminoT(tableau, 10, col);
+            Formes.tetriminoT(tableau, Verification.verificationTetriminoT(tableau, col), col);
         }
     } else if (f == 4) {
         System.out.println("La forme est le L . \n\n ***\n * \n\n");
