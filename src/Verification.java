@@ -170,15 +170,17 @@ public class Verification {
     // Tetrimino L1 rotation 90°
     public static int verificationTetriminoL1(String[][] tab, int col) {
 
-        int x = 0;
+        int x = 2;
 
-        while (tab[x][col].equals(" ") && tab[x][col+1].equals(" ") && x !=10){
+        // Tant qu'il y a de l'espace sous la ligne alors elle descend
+        while(tab[x-1][col].equals(" ") && x != 10) {
             x++;
         }
 
-        if (tab[x][col].equals("*")){
+        while(tab[x][col+1].equals("*") && x != 10) {
             x--;
         }
+
 
         return x;
     }

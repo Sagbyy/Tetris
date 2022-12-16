@@ -31,8 +31,8 @@ public class Main {
         int col;
 do {
     // Choisit aléatoirement une formes
-//            int f = 1 + (int)(Math.random() * ((6)+1));
-    int f = 3;
+            //int f = 1 + (int)(Math.random() * ((6)+1));
+    int f = 4;
 
 
 
@@ -141,7 +141,7 @@ do {
                 col = scanner.nextInt();
             } while (col < 0 || col > 20);
 
-            Formes.tetriminoL1(tableau, 10, col);
+            Formes.tetriminoL1(tableau, Verification.verificationTetriminoL1(tableau, col), col);
 
         // Tetrimino L rotation 180°
         } else if (rotation == 2) {
@@ -151,7 +151,7 @@ do {
                 col = scanner.nextInt();
             } while (col < 0 || col > 19);
 
-            Formes.tetriminoL2(tableau, 10, col);
+            Formes.tetriminoL2(tableau, 1, col);
 
         } else if (rotation == 3) {
             // Tetrimino L rotation 270°
@@ -171,7 +171,7 @@ do {
                 col = scanner.nextInt();
             } while (col < 0 || col > 19);
 
-            Formes.tetriminoL(tableau, 10, col);
+            Formes.tetriminoL(tableau, Verification.verificationTetriminoL(tableau, col), col);
         }
 
     // Tetrimino J
