@@ -184,4 +184,82 @@ public class Verification {
 
         return x;
     }
+
+
+
+
+
+
+
+    // Tetrimino Z
+    public static int verificationTetriminoZ(String[][] tab, int col) {
+
+        int x = 1;
+
+        // Tant que sous la premiere étoile il y a un espace alors la forme descend
+        while (tab[x][col].equals(" ") && tab[x][col+1].equals(" ") && tab[x][col+2].equals(" ") && x != 10) {
+            x++;
+        }
+
+        // Tant que il y a une étoile sur les deux étoiles du dessous alors elle remonte
+        while(tab[x][col+1].equals("*") || tab[x][col+2].equals("*") && x != 10) {
+            x--;
+        }
+
+        return x;
+    }
+
+    // Tetrimino Z1 rotation 90°
+    public static int verificationTetriminoZ1(String[][] tab, int col) {
+
+        int x = 2;
+
+        // Tant que sous la premiere colonne et la deuxieme colonne ont un espace alors la forme descend
+        while (tab[x][col+1].equals(" ") && tab[x][col].equals(" ") && x != 10) {
+            x++;
+        }
+
+        // Tant que il y a une étoile sur la premiere colonne et la deuxieme colonne alors elle remonte
+        while(tab[x][col].equals("*") || tab[x-1][col+1].equals("*") && x != 10) {
+            x--;
+        }
+
+        return x;
+    }
+
+    // Tetrimino S
+    public static int verificationTetriminoS(String[][] tab, int col) {
+
+        int x = 1;
+
+        // Tant que sous la premiere étoile il y a un espace alors la forme descend
+        while (tab[x][col+2].equals(" ") && tab[x][col].equals(" ") && tab[x][col+1].equals(" ") && x != 10) {
+            x++;
+        }
+
+        // Tant que il y a une étoile sur les deux étoiles du dessous alors elle remonte
+        while(tab[x][col].equals("*") || tab[x][col+1].equals("*") && x != 10) {
+            x--;
+        }
+
+        return x;
+    }
+
+    // Tetrimino S1 rotation 90° == Tetrimino Z1 rotation 90°
+    public static int verificationTetriminoS1(String[][] tab, int col) {
+
+        int x = 2;
+
+        // Tant que sous la premiere colonne et la deuxieme colonne ont un espace alors la forme descend
+        while (tab[x][col].equals(" ") && tab[x][col+1].equals(" ") && x != 10) {
+            x++;
+        }
+
+        // Tant que il y a une étoile sur la premiere colonne et la deuxieme colonne alors elle remonte
+        while(tab[x][col].equals("*") || tab[x-1][col+1].equals("*") && x != 10) {
+            x--;
+        }
+
+        return x;
+    }
 }

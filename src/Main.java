@@ -19,7 +19,7 @@ public class Main {
         }
 
         // Affichage du logo TETRIS en ASCii
-        System.out.println("___________     __         .__        \n" +
+        System.out.println("___________     __         .__\n" +
                 "\\__    ___/____/  |________|__| ______\n" +
                 "  |    |_/ __ \\   __\\_  __ \\  |/  ___/\n" +
                 "  |    |\\  ___/|  |  |  | \\/  |\\___ \\ \n" +
@@ -29,257 +29,272 @@ public class Main {
 
         // Déclaration de la variable col
         int col;
-do {
-    // Choisit aléatoirement une formes
-            //int f = 1 + (int)(Math.random() * ((6)+1));
-    int f = 4;
 
+        // Déclaration de la variable d'erreur en false
+        boolean error = false;
 
-
-    // ! Remplacer les if else par un switch
-    // Choix d'une des 7 formes
-    // Forme 1 = Tetrimino I
-    if (f == 1) {
-        System.out.println("La forme est la barre. \n\n **** \n\n");
-        System.out.print("Appuyez sur 1 pour mettre la barre verticalement\n(sinon 0): ");
-
-        int rotation = scanner.nextInt();
-
-        // Tetrimino I rotation 90°
-        if (rotation == 1) {
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.print("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 20);
-
-            Formes.tetriminoI1(tableau, Verification.verificationTetriminoI1(tableau, col), col);
-
-        } else {
-            // Tetrimino I
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.print("Veuillez sélectionner une colonne comprise entre 0 et 17 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 17);
-
-            Formes.tetriminoI(tableau, Verification.verificationTetriminoI(tableau, col), col);
-        }
-
-    // Forme 2 = Tetrimino O
-    } else if (f == 2) {
-        System.out.println("La forme est le cube. \n\n **\n ** \n\n");
-
-        // Demande d'une colonne en fonction de la forme
+        // Boucle du jeu
         do {
-            System.out.print("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
-            col = scanner.nextInt();
-        } while (col < 0 || col > 20);
+            // Choisit aléatoirement une formes
+            int f = 1 + (int)(Math.random() * ((6)+1));
+        //  int f = 7;
 
-        Formes.tetriminoO(tableau, Verification.verificationTetriminoO(tableau, col), col);
+        // Essaye le code pour attraper une erreur
+        try {
+            // ! Remplacer les if else par un switch
+            // Choix d'une des 7 formes
+            // Forme 1 = Tetrimino I
+            if (f == 1) {
+                System.out.println("La forme est la barre. \n\n **** \n\n");
+                System.out.print("Appuyez sur 1 pour mettre la barre verticalement\n(sinon 0): ");
 
-    // Forme 3 = Tetrimino T
-    } else if (f == 3) {
-        System.out.println("La forme est le T. \n\n ***\n  * \n\n");
-        System.out.println("Appuyez sur:\n1 pour tourner la forme de 90°\n2 pour tourner la forme de 180°\n3 pour tourner la forme de 270°\n(sinon 0)");
+                int rotation = scanner.nextInt();
 
-        int rotation = scanner.nextInt();
+                // Tetrimino I rotation 90°
+                if (rotation == 1) {
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.print("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 20);
 
-        // Tetrimino T rotation 90°
-        if (rotation == 1) {
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 20);
+                    Formes.tetriminoI1(tableau, Verification.verificationTetriminoI1(tableau, col), col);
 
-            Formes.tetriminoT1(tableau, Verification.verificationTetriminoT1(tableau, col), col);
+                } else {
+                    // Tetrimino I
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.print("Veuillez sélectionner une colonne comprise entre 0 et 17 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 17);
 
-        } else if (rotation == 2) {
-            // Tetrimino T rotation 180°
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 19);
+                    Formes.tetriminoI(tableau, Verification.verificationTetriminoI(tableau, col), col);
+                }
 
-            Formes.tetriminoT2(tableau, Verification.verificationTetriminoT2(tableau, col), col);
+                // Forme 2 = Tetrimino O
+            } else if (f == 2) {
+                System.out.println("La forme est le cube. \n\n **\n ** \n\n");
 
-        } else if (rotation == 3) {
-            // Tetrimino T rotation 270°
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 20);
+                // Demande d'une colonne en fonction de la forme
+                do {
+                    System.out.print("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
+                    col = scanner.nextInt();
+                } while (col < 0 || col > 20);
 
-            Formes.tetriminoT3(tableau, Verification.verificationTetriminoT3(tableau, col), col);
+                Formes.tetriminoO(tableau, Verification.verificationTetriminoO(tableau, col), col);
 
-        } else {
-            // Tetrimino T
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 19);
+                // Forme 3 = Tetrimino T
+            } else if (f == 3) {
+                System.out.println("La forme est le T. \n\n ***\n  * \n\n");
+                System.out.println("Appuyez sur:\n1 pour tourner la forme de 90°\n2 pour tourner la forme de 180°\n3 pour tourner la forme de 270°\n(sinon 0)");
 
-            Formes.tetriminoT(tableau, Verification.verificationTetriminoT(tableau, col), col);
-        }
+                int rotation = scanner.nextInt();
 
-    // Forme 4 = Tetrimino L
-    } else if (f == 4) {
-        System.out.println("La forme est le L . \n\n ***\n * \n\n");
-        System.out.println("Appuyez sur:\n1 pour tourner la forme de 90°\n2 pour tourner la forme de 180°\n3 pour tourner la forme de 270°\n(sinon 0)");
+                // Tetrimino T rotation 90°
+                if (rotation == 1) {
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 20);
 
-        int rotation = scanner.nextInt();
+                    Formes.tetriminoT1(tableau, Verification.verificationTetriminoT1(tableau, col), col);
 
-        // Tetrimino L rotation 90°
-        if (rotation == 1) {
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 20);
+                } else if (rotation == 2) {
+                    // Tetrimino T rotation 180°
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 19);
 
-            Formes.tetriminoL1(tableau, Verification.verificationTetriminoL1(tableau, col), col);
+                    Formes.tetriminoT2(tableau, Verification.verificationTetriminoT2(tableau, col), col);
 
-        // Tetrimino L rotation 180°
-        } else if (rotation == 2) {
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 19);
+                } else if (rotation == 3) {
+                    // Tetrimino T rotation 270°
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 20);
 
-            Formes.tetriminoL2(tableau, 1, col);
+                    Formes.tetriminoT3(tableau, Verification.verificationTetriminoT3(tableau, col), col);
 
-        } else if (rotation == 3) {
-            // Tetrimino L rotation 270°
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 20);
+                } else {
+                    // Tetrimino T
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 19);
 
-            Formes.tetriminoL3(tableau, 10, col);
+                    Formes.tetriminoT(tableau, Verification.verificationTetriminoT(tableau, col), col);
+                }
 
-        } else {
-            // Tetrimino L
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 19);
+                // Forme 4 = Tetrimino L
+            } else if (f == 4) {
+                System.out.println("La forme est le L . \n\n ***\n * \n\n");
+                System.out.println("Appuyez sur:\n1 pour tourner la forme de 90°\n2 pour tourner la forme de 180°\n3 pour tourner la forme de 270°\n(sinon 0)");
 
-            Formes.tetriminoL(tableau, Verification.verificationTetriminoL(tableau, col), col);
-        }
+                int rotation = scanner.nextInt();
 
-    // Tetrimino J
-    } else if (f == 5) {
-        System.out.println("La forme est le L inversé. \n\n ***\n   * \n\n");
-        System.out.println("Appuyez sur:\n1 pour tourner la forme de 90°\n2 pour tourner la forme de 180°\n3 pour tourner la forme de 270°\n(sinon 0) ");
+                // Tetrimino L rotation 90°
+                if (rotation == 1) {
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 20);
 
-        int rotation = scanner.nextInt();
+                    Formes.tetriminoL1(tableau, Verification.verificationTetriminoL1(tableau, col), col);
 
-        // Tetrimino J rotation 90°
-        if (rotation == 1) {
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 20);
+                    // Tetrimino L rotation 180°
+                } else if (rotation == 2) {
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 19);
 
-            Formes.tetriminoJ1(tableau, 10, col);
+                    Formes.tetriminoL2(tableau, 1, col);
 
-        } else if (rotation == 2) {
-            // Tetrimino J rotation 180°
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 19);
+                } else if (rotation == 3) {
+                    // Tetrimino L rotation 270°
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 20);
 
-            Formes.tetriminoJ2(tableau, 10, col);
+                    Formes.tetriminoL3(tableau, 10, col);
 
-        } else if (rotation == 3) {
-            // Tetrimino J rotation 270°
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 20);
+                } else {
+                    // Tetrimino L
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 19);
 
-            Formes.tetriminoJ3(tableau, 10, col);
+                    Formes.tetriminoL(tableau, Verification.verificationTetriminoL(tableau, col), col);
+                }
 
-        } else {
-            // Tetrimino J
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 19);
+                // Tetrimino J
+            } else if (f == 5) {
+                System.out.println("La forme est le L inversé. \n\n ***\n   * \n\n");
+                System.out.println("Appuyez sur:\n1 pour tourner la forme de 90°\n2 pour tourner la forme de 180°\n3 pour tourner la forme de 270°\n(sinon 0) ");
 
-            Formes.tetriminoJ(tableau, 10, col);
-        }
+                int rotation = scanner.nextInt();
 
-    // Tetrimino Z
-    } else if (f == 6) {
-        System.out.println("La forme est le biais. \n\n **\n  ** \n\n");
-        System.out.println("Appuyez sur:\n1 pour tourner la forme de 90°\n(sinon 0)");
+                // Tetrimino J rotation 90°
+                if (rotation == 1) {
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 20);
 
-        int rotation = scanner.nextInt();
+                    Formes.tetriminoJ1(tableau, 10, col);
 
-        if (rotation == 1) {
-            // Tetrimino Z rotation 90°
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 20);
+                } else if (rotation == 2) {
+                    // Tetrimino J rotation 180°
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 19);
 
-            Formes.tetriminoZ1(tableau, 10, col);
+                    Formes.tetriminoJ2(tableau, 10, col);
 
-        } else {
-            // Tetrimino Z
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 19);
+                } else if (rotation == 3) {
+                    // Tetrimino J rotation 270°
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 20);
 
-            Formes.tetriminoZ(tableau, 10, col);
-        }
+                    Formes.tetriminoJ3(tableau, 10, col);
 
-    // Tetrimino S
-    } else {
-        System.out.println("La forme est le biais inversé. \n\n  **\n ** \n\n");
-        System.out.println("Appuyez sur:\n1 pour tourner la forme de 90°\n(sinon 0)");
+                } else {
+                    // Tetrimino J
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 19);
 
-        int rotation = scanner.nextInt();
+                    Formes.tetriminoJ(tableau, 10, col);
+                }
 
-        if (rotation == 1) {
-            // Tetrimino S rotation 90°
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 20);
+                // Tetrimino Z
+            } else if (f == 6) {
+                System.out.println("La forme est le biais. \n\n **\n  ** \n\n");
+                System.out.println("Appuyez sur:\n1 pour tourner la forme de 90°\n(sinon 0)");
 
-            Formes.tetriminoS1(tableau, 10, col);
+                int rotation = scanner.nextInt();
 
-        } else {
-            // Tetrimino S
-            // Demande d'une colonne en fonction de la forme
-            do {
-                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
-                col = scanner.nextInt();
-            } while (col < 0 || col > 19);
+                if (rotation == 1) {
+                    // Tetrimino Z rotation 90°
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 20);
 
-            Formes.tetriminoS(tableau, 10, col);
-        }
-    }
+                    Formes.tetriminoZ1(tableau, Verification.verificationTetriminoZ1(tableau, col), col);
 
-    Map.socle(tableau, colonne);
-}while(col != 80);
+                } else {
+                    // Tetrimino Z
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 19);
+
+                    Formes.tetriminoZ(tableau, Verification.verificationTetriminoZ(tableau, col), col);
+                }
+
+                // Tetrimino S
+            } else {
+                System.out.println("La forme est le biais inversé. \n\n  **\n ** \n\n");
+                System.out.println("Appuyez sur:\n1 pour tourner la forme de 90°\n(sinon 0)");
+
+                int rotation = scanner.nextInt();
+
+                if (rotation == 1) {
+                    // Tetrimino S rotation 90°
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 20);
+
+                    Formes.tetriminoS1(tableau, Verification.verificationTetriminoS1(tableau, col), col);
+
+                } else {
+                    // Tetrimino S
+                    // Demande d'une colonne en fonction de la forme
+                    do {
+                        System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
+                        col = scanner.nextInt();
+                    } while (col < 0 || col > 19);
+
+                    Formes.tetriminoS(tableau, Verification.verificationTetriminoS(tableau, col), col);
+                }
+            }
+
+            // Affichage du tableau à jour !
+            Map.socle(tableau, colonne);
+
+            // Détecte si il y'a une erreur de tableau qui depasse
+            } catch (ArrayIndexOutOfBoundsException message) {
+            // Si oui envoie message ainsi qu'error se transforme en true
+            System.out.println("Vous avez perdu !");
+            error = true;
+            }
+
+        // Tant que error est à false le code se re lance
+        }while(!error);
     }
 }
