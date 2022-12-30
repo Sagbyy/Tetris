@@ -36,7 +36,7 @@ public class Main {
         // Boucle du jeu
         do {
             // Choisit aléatoirement une formes
-            int f = 1 + (int)(Math.random() * ((6)+1));
+            int f = 1 + (int)(Math.random() * ((7 - 1 + 1) + 1));
         //  int f = 7;
 
         // Essaye le code pour attraper une erreur
