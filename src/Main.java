@@ -35,13 +35,11 @@ public class Main {
 
         // Boucle du jeu
         do {
-            // Choisit aléatoirement une formes
-            int f = 1 + (int)(Math.random() * ((7 - 1 + 1) + 1));
-        //  int f = 7;
+        // Choisit aléatoirement des formes
+        int f = 1 + (int)(Math.random() * ((7 - 1 + 1) + 1));
 
         // Essaye le code pour attraper une erreur
         try {
-            // ! Remplacer les if else par un switch
             // Choix d'une des 7 formes
             // Forme 1 = Tetrimino I
             if (f == 1) {
@@ -287,14 +285,18 @@ public class Main {
             // Affichage du tableau à jour !
             Map.socle(tableau, colonne);
 
-            // Détecte si il y'a une erreur de tableau qui depasse
+
+            //
+            Point.lineDelete(tableau);
+
+            // Détecte s'il y a une erreur de tableau qui depasse
             } catch (ArrayIndexOutOfBoundsException message) {
             // Si oui envoie message ainsi qu'error se transforme en true
-            System.out.println("Vous avez perdu !");
+            System.out.println("Vous avez perdu avec " + Point.resultat + " points !");
             error = true;
             }
 
-        // Tant que error est à false le code se re lance
+        // Tant qu'error est à false le code se re-lance
         }while(!error);
     }
 }
