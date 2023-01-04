@@ -1,12 +1,11 @@
 public class Point {
     // Constante de la longueur de la ligne hors cadre du plateau
     public static final int LINELENGTH = 22;
-
     // Nombre de points gagné
     public static final int POINTS = 50;
-
     // Variable global du resultat afin de l'utiliser dans le main
     public static int resultat = 0;
+
 
     public static void lineDelete(String[][] tab) {
 
@@ -45,7 +44,7 @@ public class Point {
                 // Remplace la première ligne du tableau par la ligne vide
                 tab[0] = emptyLine;
 
-                // Rajoute 100 points dans le résultat
+                // Rajoute constante points dans le résultat
                 resultat = resultat + POINTS;
             }
         }
