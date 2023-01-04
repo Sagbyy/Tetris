@@ -14,8 +14,8 @@ public class DemandeForme {
         // Boucle du jeu
         do {
             // Choisit aléatoirement des formes
-            int f = 1 + (int)(Math.random() * ((7 - 1 + 1) + 1));
-
+//            int f = 1 + (int)(Math.random() * ((7 - 1 + 1) + 1));
+int f = 2;
             // Essaye le code pour attraper une erreur
             try {
                 // Choix d'une des 7 formes
@@ -269,7 +269,7 @@ public class DemandeForme {
                 // Détecte s'il y a une erreur de tableau qui depasse
             } catch (ArrayIndexOutOfBoundsException message) {
                 // Si oui envoie message ainsi qu'error se transforme en true
-                System.out.println("\n Vous avez perdu avec " + Point.resultat + " points !");
+                System.out.println("\nVous avez perdu avec " + ConsoleColors.YELLOW_BOLD + Point.resultat + ConsoleColors.RESET + " point(s) !");
                 error = true;
             }
 

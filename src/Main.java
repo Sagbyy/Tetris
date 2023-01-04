@@ -20,6 +20,10 @@ public class Main {
             response = scanner.nextLine();
         }
 
+        // Saut de ligne pour épurer le texte
+        System.out.println();
+
+        // Appel la class DemandeForme avec sa fonction principale()
         DemandeForme.princpale(Array.ARRAY, Array.COLONNEARRAY);
     }
 }
