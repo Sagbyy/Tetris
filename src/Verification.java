@@ -185,8 +185,117 @@ public class Verification {
         return x;
     }
 
+    //Tetrimino L2 rotation 180°
+    public static int verificationTetriminoL2(String[][] tab, int col){
+        int x = 2;
+
+        //tant qu'il y a de la place sur la ligne la forme descend
+        while (tab[x][col].equals(" ") && tab[x][col+1].equals(" ") && tab[x][col+2].equals(" ") && x !=10){
+            x++;
+        }
+
+        // remonte d'une ligne si une forme est déjà présente à l'emplacement
+        while (tab[x][col].equals("*") || tab[x][col+1].equals("*") || tab[x][col+2].equals("*")){
+            x--;
+        }
+
+        return x;
+    }
+
+    //Tetrimino L3 rotation 260°
+    public static int verificationTetriminoL3(String[][] tab, int col) {
+
+        int x = 2;
+
+        // Tant qu'il y a de l'espace sous la ligne alors elle descend
+        while(tab[x][col].equals(" ") && x != 10) {
+            x++;
+        }
+
+        while(tab[x][col].equals("*") && x != 10) {
+            x--;
+        }
+
+        return x;
+    }
+
+    //Tetrimino J
+    public static int verificationTetriminoJ(String[][] tab, int col){
+        // début de la première ligne
+        int x = 0;
+
+        //tant qu'il y a de la place sur la ligne la forme descend
+        while (tab[x][col].equals(" ") && tab[x][col+1].equals(" ") && tab[x][col+2].equals(" ") && x !=10){
+            x++;
+        }
+
+        // remonte d'une ligne si une forme est déjà présente à l'emplacement
+        while (tab[x][col+2].equals("*")){
+            x--;
+        }
+
+        return x;
+    }
+
+    //Tetrimino J1 rotation 90°
+    public static int verificationTetriminoJ1(String[][] tab, int col){   // bug de collision sur la derniere ligne de la map ???
+        int x = 0;
+
+        // Tant qu'il y a de l'espace sous la ligne alors elle descend
+        while(tab[x][col].equals(" ") && tab[x][col+1].equals(" ") && x != 10) {
+            x++;
+        }
+
+        while(tab[x][col].equals("*") && x != 10) {
+            x--;
+        }
+
+        while (tab[x][col+1].equals("*") && x != 10) {
+            x--;
+        }
+
+        return x;
+    }
 
 
+
+    //Tetrimino J2 rotation 180°
+    public static int verificationTetriminoJ2(String[][] tab, int col){
+
+        int x = 2;
+
+        //tant qu'il y a de la place sur la ligne la forme descend
+        while (tab[x][col].equals(" ") && tab[x][col+1].equals(" ") && tab[x][col+2].equals(" ") && x !=10){
+            x++;
+        }
+
+        // remonte d'une ligne si une forme est déjà présente à l'emplacement
+        while (tab[x][col].equals("*") || tab[x][col+1].equals("*") || tab[x][col+2].equals("*")){
+            x--;
+        }
+
+        return x;
+    }
+
+    //Tetrimino J3 rotation 260°
+    public static int verificationTetriminoJ3(String[][] tab, int col){
+        int x = 2;
+
+        // Tant qu'il y a de l'espace sous la ligne alors elle descend
+        while(tab[x][col].equals(" ") && x != 10) {
+            x++;
+        }
+
+        while(tab[x][col].equals("*") && x != 10) {
+            x--;
+        }
+        while (tab[x][col+1].equals("*") && x != 10) {
+            x=x-2;
+        }
+
+
+        return x;
+    }
 
 
 

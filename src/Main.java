@@ -24,6 +24,6 @@ public class Main {
         System.out.println();
 
         // Appel la class DemandeForme avec sa fonction principale()
-        DemandeForme.princpale(Array.ARRAY, Array.COLONNEARRAY);
+        DemandeForme.principale(Array.ARRAY, Array.COLONNEARRAY);
     }
 }
