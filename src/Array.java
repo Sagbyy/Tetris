@@ -1,7 +1,7 @@
 public class
 Array {
     public static final int LIGNEARRAY = 11;
-    public static final int COLONNEARRAY = 22;
+    public static final int COLONNEARRAY = 15;
     public static final String[][] ARRAY = new String[11][COLONNEARRAY];
 
     public static void createArray() {

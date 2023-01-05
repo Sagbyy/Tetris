@@ -1,4 +1,4 @@
-public class Verification {
+public class VerificationFormes {
 
 
     // Tetrimino I
@@ -152,7 +152,7 @@ public class Verification {
     public static int verificationTetriminoL(String[][] tab, int col) {
 
         // début de la première ligne
-        int x = 0;
+        int x = 1;
 
         //tant qu'il y a de la place sur la ligne la forme descend
         while (tab[x][col].equals(" ") && tab[x][col+1].equals(" ") && tab[x][col+2].equals(" ") && x !=10){
@@ -239,18 +239,15 @@ public class Verification {
 
     //Tetrimino J1 rotation 90°
     public static int verificationTetriminoJ1(String[][] tab, int col){   // bug de collision sur la derniere ligne de la map ???
-        int x = 0;
+
+        int x = 2;
 
         // Tant qu'il y a de l'espace sous la ligne alors elle descend
-        while(tab[x][col].equals(" ") && tab[x][col+1].equals(" ") && x != 10) {
+        while(tab[x-1][col].equals(" ") && x != 10) {
             x++;
         }
 
-        while(tab[x][col].equals("*") && x != 10) {
-            x--;
-        }
-
-        while (tab[x][col+1].equals("*") && x != 10) {
+        while(tab[x][col+1].equals("*") && x != 10) {
             x--;
         }
 
@@ -310,7 +307,7 @@ public class Verification {
             x++;
         }
 
-        // Tant que il y a une étoile sur les deux étoiles du dessous alors elle remonte
+        // Tant qu'il y a une étoile sur les deux étoiles du dessous alors elle remonte
         while(tab[x][col+1].equals("*") || tab[x][col+2].equals("*") && x != 10) {
             x--;
         }

@@ -1,6 +1,4 @@
 public class Point {
-    // Constante de la longueur de la ligne hors cadre du plateau
-    public static final int LINELENGTH = 22;
     // Nombre de points gagné
     public static final int POINTS = 50;
     // Variable global du resultat afin de l'utiliser dans le main
@@ -16,16 +14,16 @@ public class Point {
             int cptStar = 0;
 
             // Boucle pour compter le nombre d'étoiles sur la ligne
-            for (int y = 0; y < LINELENGTH; y++) {
+            for (int y = 0; y < Array.LIGNEARRAY; y++) {
                 if (tab[x][y].equals("*")) {
                     cptStar++;
                 }
             }
 
             // Si la ligne est remplie d'étoiles
-            if (cptStar == LINELENGTH) {
+            if (cptStar == Array.LIGNEARRAY) {
                 // Remplace la ligne complète par des espaces
-                for(int y = 0; y < LINELENGTH; y++) {
+                for(int y = 0; y < Array.LIGNEARRAY; y++) {
                     tab[x][y] = " ";
                 }
 

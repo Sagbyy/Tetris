@@ -14,7 +14,7 @@ public class Main {
         // Variable de la reponse de l'utilisateur
         String response = scanner.nextLine();
 
-        while(!response.equals("GO")) {
+        while(!response.equals("GO") && !response.equals("go")) {
             System.out.println("\nTu ne veux pas jouer serieux ?");
             System.out.print("Allez lance le jeu avec 'GO' : ");
             response = scanner.nextLine();
