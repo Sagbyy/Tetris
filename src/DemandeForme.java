@@ -1,15 +1,12 @@
 import java.util.Scanner;
 
 public class DemandeForme {
-    public static void principale(String[][] tableau, int colonne) {
+    public static void principale(String[][] tableau) {
 
         Scanner scanner = new Scanner(System.in).useDelimiter("\n");
 
-        // Couleurs des formes
-        String color = ConsoleColors.RESET;
-
         // Affichage du tableau vide
-        Map.socle(tableau, colonne, color);
+        Map.socle(tableau);
 
         // Déclaration de la variable col
         int col;
@@ -41,9 +38,9 @@ public class DemandeForme {
                         if (rotation == 1) {
                             // Demande d'une colonne en fonction de la forme
                             do {
-                                System.out.print("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINOIROTA + " inclus : ");
+                                System.out.print("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINOI_ROTA + " inclus : ");
                                 col = scanner.nextInt();
-                            } while (col < 0 || col > ParametresFormes.TETRIMINOIROTA);
+                            } while (col < 0 || col > ParametresFormes.TETRIMINOI_ROTA);
 
                             Formes.tetriminoI1(tableau, VerificationFormes.verificationTetriminoI1(tableau, col), col);
 
@@ -58,8 +55,6 @@ public class DemandeForme {
                             Formes.tetriminoI(tableau, VerificationFormes.verificationTetriminoI(tableau, col), col);
                         }
 
-                        // Couleur de la forme
-                        color = ConsoleColors.CYAN;
                         break;
 
                     case 2:// Forme 2 = Tetrimino O
@@ -73,8 +68,6 @@ public class DemandeForme {
 
                         Formes.tetriminoO(tableau, VerificationFormes.verificationTetriminoO(tableau, col), col);
 
-                        // Couleur de la forme
-                        color = ConsoleColors.YELLOW_BRIGHT;
                         break;
 
                     case 3:// Forme 3 = Tetrimino T
@@ -91,9 +84,9 @@ public class DemandeForme {
                         if (rotation == 1) {
                             // Demande d'une colonne en fonction de la forme
                             do {
-                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINOTROTA + " inclus : ");
+                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINOT_ROTA + " inclus : ");
                                 col = scanner.nextInt();
-                            } while (col < 0 || col > ParametresFormes.TETRIMINOTROTA);
+                            } while (col < 0 || col > ParametresFormes.TETRIMINOT_ROTA);
 
                             Formes.tetriminoT1(tableau, VerificationFormes.verificationTetriminoT1(tableau, col), col);
 
@@ -111,9 +104,9 @@ public class DemandeForme {
                             // Tetrimino T rotation 270°
                             // Demande d'une colonne en fonction de la forme
                             do {
-                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINOTROTA + " inclus : ");
+                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINOT_ROTA + " inclus : ");
                                 col = scanner.nextInt();
-                            } while (col < 0 || col > ParametresFormes.TETRIMINOTROTA);
+                            } while (col < 0 || col > ParametresFormes.TETRIMINOT_ROTA);
 
                             Formes.tetriminoT3(tableau, VerificationFormes.verificationTetriminoT3(tableau, col), col);
 
@@ -128,8 +121,6 @@ public class DemandeForme {
                             Formes.tetriminoT(tableau, VerificationFormes.verificationTetriminoT(tableau, col), col);
                         }
 
-                        // Couleur de la forme
-                        color = ConsoleColors.PURPLE;
                         break;
 
                     case 4:// Forme 4 = Tetrimino L
@@ -146,9 +137,9 @@ public class DemandeForme {
                         if (rotation == 1) {
                             // Demande d'une colonne en fonction de la forme
                             do {
-                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINOLROTA + " inclus : ");
+                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINOL_ROTA + " inclus : ");
                                 col = scanner.nextInt();
-                            } while (col < 0 || col > ParametresFormes.TETRIMINOLROTA);
+                            } while (col < 0 || col > ParametresFormes.TETRIMINOL_ROTA);
 
                             Formes.tetriminoL1(tableau, VerificationFormes.verificationTetriminoL1(tableau, col), col);
 
@@ -167,9 +158,9 @@ public class DemandeForme {
 
                             // Demande d'une colonne en fonction de la forme
                             do {
-                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINOLROTA + " inclus : ");
+                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINOL_ROTA + " inclus : ");
                                 col = scanner.nextInt();
-                            } while (col < 0 || col > ParametresFormes.TETRIMINOLROTA);
+                            } while (col < 0 || col > ParametresFormes.TETRIMINOL_ROTA);
 
                             Formes.tetriminoL3(tableau, VerificationFormes.verificationTetriminoL3(tableau, col), col);
 
@@ -185,8 +176,6 @@ public class DemandeForme {
                             Formes.tetriminoL(tableau, VerificationFormes.verificationTetriminoL(tableau, col), col);
                         }
 
-                        // Couleur de la forme
-                        color = ConsoleColors.YELLOW;
                         break;
 
                     case 5:// Forme 5 = Tetrimino J
@@ -203,9 +192,9 @@ public class DemandeForme {
                         if (rotation == 1) {
                             // Demande d'une colonne en fonction de la forme
                             do {
-                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINOJROTA + " inclus : ");
+                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINOJ_ROTA + " inclus : ");
                                 col = scanner.nextInt();
-                            } while (col < 0 || col > ParametresFormes.TETRIMINOJROTA);
+                            } while (col < 0 || col > ParametresFormes.TETRIMINOJ_ROTA);
 
                             Formes.tetriminoJ1(tableau, VerificationFormes.verificationTetriminoJ1(tableau, col), col);
 
@@ -225,9 +214,9 @@ public class DemandeForme {
 
                             // Demande d'une colonne en fonction de la forme
                             do {
-                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINOJROTA + " inclus : ");
+                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINOJ_ROTA + " inclus : ");
                                 col = scanner.nextInt();
-                            } while (col < 0 || col > ParametresFormes.TETRIMINOJROTA);
+                            } while (col < 0 || col > ParametresFormes.TETRIMINOJ_ROTA);
 
                             Formes.tetriminoJ3(tableau, VerificationFormes.verificationTetriminoJ3(tableau, col), col);
 
@@ -243,8 +232,6 @@ public class DemandeForme {
                             Formes.tetriminoJ(tableau, VerificationFormes.verificationTetriminoJ(tableau, col), col);
                         }
 
-                        // Couleur de la forme
-                        color = ConsoleColors.BLUE;
                         break;
 
                     case 6:// Tetrimino Z
@@ -261,9 +248,9 @@ public class DemandeForme {
                             // Tetrimino Z rotation 90°
                             // Demande d'une colonne en fonction de la forme
                             do {
-                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
+                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINO_BIAIS_ROTA + " inclus : ");
                                 col = scanner.nextInt();
-                            } while (col < 0 || col > 20);
+                            } while (col < 0 || col > ParametresFormes.TETRIMINO_BIAIS_ROTA);
 
                             Formes.tetriminoZ1(tableau, VerificationFormes.verificationTetriminoZ1(tableau, col), col);
 
@@ -271,15 +258,13 @@ public class DemandeForme {
                             // Tetrimino Z
                             // Demande d'une colonne en fonction de la forme
                             do {
-                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
+                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINO_BIAIS + " inclus : ");
                                 col = scanner.nextInt();
-                            } while (col < 0 || col > 19);
+                            } while (col < 0 || col > ParametresFormes.TETRIMINO_BIAIS);
 
                             Formes.tetriminoZ(tableau, VerificationFormes.verificationTetriminoZ(tableau, col), col);
                         }
 
-                        // Couleur de la forme
-                        color = ConsoleColors.RED;
                         break;
 
                     case 7:// Tetrimino S
@@ -295,9 +280,9 @@ public class DemandeForme {
                             // Tetrimino S rotation 90°
                             // Demande d'une colonne en fonction de la forme
                             do {
-                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 20 inclus : ");
+                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINO_BIAIS_ROTA + " inclus : ");
                                 col = scanner.nextInt();
-                            } while (col < 0 || col > 20);
+                            } while (col < 0 || col > ParametresFormes.TETRIMINO_BIAIS_ROTA);
 
                             Formes.tetriminoS1(tableau, VerificationFormes.verificationTetriminoS1(tableau, col), col);
 
@@ -305,23 +290,18 @@ public class DemandeForme {
 
                             // Demande d'une colonne en fonction de la forme
                             do {
-                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et 19 inclus : ");
+                                System.out.println("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINO_BIAIS + " inclus : ");
                                 col = scanner.nextInt();
-                            } while (col < 0 || col > 19);
+                            } while (col < 0 || col > ParametresFormes.TETRIMINO_BIAIS);
 
                             Formes.tetriminoS(tableau, VerificationFormes.verificationTetriminoS(tableau, col), col);
                         }
 
-                        // Couleur de la forme
-                        color = ConsoleColors.GREEN;
                         break;
                 }
 
                 // Affichage du tableau à jour !
-                Map.socle(tableau, colonne, color);
-
-                // Couleurs des formes
-                color = ConsoleColors.RESET;
+                Map.socle(tableau);
 
                 // Verifie s'il n'y a aucune ligne remplie d'étoiles
                 Point.lineDelete(tableau);

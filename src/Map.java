@@ -1,6 +1,6 @@
 public class Map {
 
-    public static void socle(String[][] tableau, int colonne, String color) {
+    public static void socle(String[][] tableau) {
 
         // Saut de ligne pour séparer le texte qu'il y aura au-dessus
         System.out.println();
@@ -10,14 +10,14 @@ public class Map {
             System.out.print("|");
             for (int y = 0; y < tableau[x].length ; y++) {
                 // Ajoute les données du tableau entre les extremiter "|"
-                System.out.print(color +  tableau[x][y] + ConsoleColors.RESET);
+                System.out.print(tableau[x][y]);
             }
             System.out.println("|");
         }
 
         // Le fond du tableau
         System.out.print(" ");
-        for (int i = 0; i < colonne; i++) {
+        for (int i = 0; i < Introduction.numberColumn; i++) {
             System.out.print("‾");
         }
         System.out.println("\n");

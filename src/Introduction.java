@@ -1,5 +1,13 @@
+import java.util.Scanner;
+
 public class Introduction {
+
+    public static int numberColumn;
+
     public static void introduction() {
+
+        Scanner scanner = new Scanner(System.in).useDelimiter("\n");
+
         // Affichage du logo TETRIS en ASCii
         System.out.println(ConsoleColors.YELLOW +  "___________     __         .__\n" +
                 "\\__    ___/____/  |________|__| ______\n" +
@@ -17,5 +25,24 @@ public class Introduction {
         System.out.println("Mais comment choisir la colonne avec une forme qui mesure plusieurs colonne ? \nC'est très simple, il s'agit simplement de choisir la colonne de la forme qui est le plus à gauche comme ci-dessous :");
         System.out.println("  \n\n " + ConsoleColors.RED + "*" + ConsoleColors.RESET + "**\n " + ConsoleColors.RED + "* \n\n" + ConsoleColors.RESET);
         System.out.print("Désormais entrer 'GO' pour lancer le jeu ! : ");
+
+        // Variable de la reponse de l'utilisateur
+        String responseGo = scanner.nextLine();
+
+        while(!responseGo.equals("GO") && !responseGo.equals("go")) {
+            System.out.println("\nTu ne veux pas jouer serieux ?");
+            System.out.print("Allez lance le jeu avec 'GO' : ");
+            responseGo = scanner.nextLine();
+        }
+
+        // Choix du nombre de colonnes
+        System.out.print("\nChoisissez le nombre de colonne (minimum 11): ");
+        numberColumn = scanner.nextInt();
+
+        while(numberColumn < 10) {
+            System.out.println("\nNon, désolée mais c'est impossible de choisir " + numberColumn + " colonne(s)");
+            System.out.print("Choisissez le nombre de colonne (minimum 11) : ");
+            numberColumn = scanner.nextInt();
+        }
     }
 }

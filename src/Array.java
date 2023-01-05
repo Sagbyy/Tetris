@@ -1,8 +1,6 @@
-public class
-Array {
+public class Array {
     public static final int LIGNEARRAY = 11;
-    public static final int COLONNEARRAY = 15;
-    public static final String[][] ARRAY = new String[11][COLONNEARRAY];
+    public static final String[][] ARRAY = new String[LIGNEARRAY][Introduction.numberColumn];
 
     public static void createArray() {
         // Création du tableau
@@ -10,7 +8,7 @@ Array {
 
         // Remplissage du tableau
         for (int i = 0; i < LIGNEARRAY; i++) {
-            for (int j = 0; j < COLONNEARRAY; j++) {
+            for (int j = 0; j < Introduction.numberColumn; j++) {
                 ARRAY[i][j] = " ";
             }
         }
