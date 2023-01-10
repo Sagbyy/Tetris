@@ -14,16 +14,16 @@ public class Point {
             int cptStar = 0;
 
             // Boucle pour compter le nombre d'étoiles sur la ligne
-            for (int y = 0; y < Array.LIGNEARRAY; y++) {
-                if (tab[x][y].equals("*")) {
+            for (int y = 0; y < Introduction.numberColumn; y++) {
+                if (!tab[x][y].equals(" ")) {
                     cptStar++;
                 }
             }
 
             // Si la ligne est remplie d'étoiles
-            if (cptStar == Array.LIGNEARRAY) {
+            if (cptStar == Introduction.numberColumn) {
                 // Remplace la ligne complète par des espaces
-                for(int y = 0; y < Array.LIGNEARRAY; y++) {
+                for(int y = 0; y < Introduction.numberColumn; y++) {
                     tab[x][y] = " ";
                 }
 
@@ -44,6 +44,8 @@ public class Point {
 
                 // Rajoute constante points dans le résultat
                 resultat = resultat + POINTS;
+                System.out.println("Félicitation vous aviez gagner" + ConsoleColors.RED + " 50 pts " + ConsoleColors.RESET +  "!\n");
+                Map.socle(tab);
             }
         }
     }

@@ -1,5 +1,5 @@
 public class ConsoleColors {
-    // Class des couleurs pour la console
+        // Class des couleurs pour la console
 
         // Reset
         public static final String RESET = "\033[0m";  // Text Reset

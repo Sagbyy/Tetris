@@ -21,18 +21,18 @@ public class DemandeForme {
         do {
             // Choisit aléatoirement des formes
             int f = 1 + (int)(Math.random() * ((7 - 1 + 1) + 1));
-//            int f = 1;
+//            int f = 7;                                                 //1:barre, 2:cube, 3:T , 4:L , 5:L inversé , 6:biais , 7:biais inversé
             // Essaye le code pour attraper une erreur
             try {
                 // Choix d'une des 7 formes
-                switch(f){// Forme 1 = Tetrimino I
-                    case 1:
+                switch (f) {// Forme 1 = Tetrimino I
+                    case 1 -> {
                         System.out.println("La forme est la barre. " + ConsoleColors.CYAN + "\n\n **** \n\n" + ConsoleColors.RESET);
                         // Demande si le joueur souhaite tourner la forme
-                        do{
+                        do {
                             System.out.print("Appuyez sur 1 pour mettre la barre verticalement\n(sinon 0): ");
                             rotation = scanner.nextInt();
-                        }while (rotation!=0 && rotation!=1);
+                        } while (rotation != 0 && rotation != 1);
 
                         // Tetrimino I rotation 90°
                         if (rotation == 1) {
@@ -54,10 +54,8 @@ public class DemandeForme {
 
                             Formes.tetriminoI(tableau, VerificationFormes.verificationTetriminoI(tableau, col), col);
                         }
-
-                        break;
-
-                    case 2:// Forme 2 = Tetrimino O
+                    }
+                    case 2 -> {// Forme 2 = Tetrimino O
 
                         System.out.println("La forme est le cube. " + ConsoleColors.YELLOW_BRIGHT + "\n\n **\n ** \n\n" + ConsoleColors.RESET);
                         // Demande d'une colonne en fonction de la forme
@@ -65,19 +63,16 @@ public class DemandeForme {
                             System.out.print("Veuillez sélectionner une colonne comprise entre 0 et " + ParametresFormes.TETRIMINOO + " inclus : ");
                             col = scanner.nextInt();
                         } while (col < 0 || col > ParametresFormes.TETRIMINOO);
-
                         Formes.tetriminoO(tableau, VerificationFormes.verificationTetriminoO(tableau, col), col);
-
-                        break;
-
-                    case 3:// Forme 3 = Tetrimino T
+                    }
+                    case 3 -> {// Forme 3 = Tetrimino T
 
                         System.out.println("La forme est le T. " + ConsoleColors.PURPLE + "\n\n ***\n  * \n\n" + ConsoleColors.RESET);
                         // Demande si le joueur souhaite tourner la forme
-                        do{
+                        do {
                             System.out.println("Appuyez sur:\n1 pour tourner la forme de 90°\n2 pour tourner la forme de 180°\n3 pour tourner la forme de 270°\n(sinon 0)");
                             rotation = scanner.nextInt();
-                        }while (rotation < 0 || rotation > 3);
+                        } while (rotation < 0 || rotation > 3);
 
 
                         // Tetrimino T rotation 90°
@@ -120,17 +115,15 @@ public class DemandeForme {
 
                             Formes.tetriminoT(tableau, VerificationFormes.verificationTetriminoT(tableau, col), col);
                         }
-
-                        break;
-
-                    case 4:// Forme 4 = Tetrimino L
+                    }
+                    case 4 -> {// Forme 4 = Tetrimino L
 
                         System.out.println("La forme est le L . " + ConsoleColors.YELLOW_BRIGHT + "\n\n ***\n * \n\n" + ConsoleColors.RESET);
                         // Demande si le joueur souhaite tourner la forme
-                        do{
+                        do {
                             System.out.println("Appuyez sur:\n1 pour tourner la forme de 90°\n2 pour tourner la forme de 180°\n3 pour tourner la forme de 270°\n(sinon 0)");
                             rotation = scanner.nextInt();
-                        }while (rotation < 0 || rotation>3);
+                        } while (rotation < 0 || rotation > 3);
 
 
                         // Tetrimino L rotation 90°
@@ -175,17 +168,15 @@ public class DemandeForme {
 
                             Formes.tetriminoL(tableau, VerificationFormes.verificationTetriminoL(tableau, col), col);
                         }
-
-                        break;
-
-                    case 5:// Forme 5 = Tetrimino J
+                    }
+                    case 5 -> {// Forme 5 = Tetrimino J
 
                         System.out.println("La forme est le L inversé. " + ConsoleColors.BLUE + "\n\n ***\n   * \n\n" + ConsoleColors.RESET);
                         // Demande si le joueur souhaite tourner la forme
-                        do{
+                        do {
                             System.out.println("Appuyez sur:\n1 pour tourner la forme de 90°\n2 pour tourner la forme de 180°\n3 pour tourner la forme de 270°\n(sinon 0) ");
                             rotation = scanner.nextInt();
-                        }while (rotation < 0 || rotation > 3);
+                        } while (rotation < 0 || rotation > 3);
 
 
                         // Tetrimino J rotation 90°
@@ -231,19 +222,15 @@ public class DemandeForme {
 
                             Formes.tetriminoJ(tableau, VerificationFormes.verificationTetriminoJ(tableau, col), col);
                         }
-
-                        break;
-
-                    case 6:// Tetrimino Z
+                    }
+                    case 6 -> {// Tetrimino Z
 
                         System.out.println("La forme est le biais. " + ConsoleColors.RED + "\n\n **\n  ** \n\n" + ConsoleColors.RESET);
                         // Demande si le joueur souhaite tourner la forme
-                        do{
+                        do {
                             System.out.println("Appuyez sur:\n1 pour tourner la forme de 90°\n(sinon 0)");
                             rotation = scanner.nextInt();
-                        }while (rotation != 0 && rotation != 1);
-
-
+                        } while (rotation != 0 && rotation != 1);
                         if (rotation == 1) {
                             // Tetrimino Z rotation 90°
                             // Demande d'une colonne en fonction de la forme
@@ -264,18 +251,13 @@ public class DemandeForme {
 
                             Formes.tetriminoZ(tableau, VerificationFormes.verificationTetriminoZ(tableau, col), col);
                         }
-
-                        break;
-
-                    case 7:// Tetrimino S
+                    }
+                    case 7 -> {// Tetrimino S
                         System.out.println("La forme est le biais inversé. " + ConsoleColors.GREEN + "\n\n  **\n ** \n\n" + ConsoleColors.RESET);
-                        do{
+                        do {
                             System.out.println("Appuyez sur:\n1 pour tourner la forme de 90°\n(sinon 0)");
                             rotation = scanner.nextInt();
-                        }while (rotation!=0 && rotation!=1);
-
-
-
+                        } while (rotation != 0 && rotation != 1);
                         if (rotation == 1) {
                             // Tetrimino S rotation 90°
                             // Demande d'une colonne en fonction de la forme
@@ -296,8 +278,7 @@ public class DemandeForme {
 
                             Formes.tetriminoS(tableau, VerificationFormes.verificationTetriminoS(tableau, col), col);
                         }
-
-                        break;
+                    }
                 }
 
                 // Affichage du tableau à jour !

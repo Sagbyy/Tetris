@@ -14,18 +14,18 @@ public class VerificationFormes {
 
         // Boucle pour remonter la ligne au cas où sa largeur fusionne avec une autre forme
         for (int j = 1; j < 4; j++) {
-            while (tab[x][col + j].equals("*")) {
+            while (tab[x][col+j].equals("*")) {
                 x--;
             }
         }
 
         // Condition pour éviter la superposition
-        if (tab[x][col].equals("*")) {
+        if (!tab[x][col].equals(" ")) {
             x--;
         }
 
-            return x;
-        }
+        return x;
+    }
 
     // Tetrimino I Rotation
     public static int verificationTetriminoI1(String[][] tab, int col) {
@@ -39,7 +39,7 @@ public class VerificationFormes {
         }
 
         // Condition pour éviter la superposition
-        if (tab[x][col].equals("*")){
+        if (!tab[x][col].equals(" ")){
             x--;
         }
 
@@ -59,7 +59,7 @@ public class VerificationFormes {
 
         // Boucle pour remonter la ligne au cas où sa largeur fusionne avec une autre forme
         for (int j = 0; j < 2; j++) {
-            while(tab[x][col + j].equals("*")) {
+            while(!tab[x][col+j].equals(" ")) {
                 x--;
             }
         }
@@ -79,7 +79,7 @@ public class VerificationFormes {
         }
 
         // Boucle pour remonter la ligne au cas où la colonne du mileu se fusionne
-        while (tab[x][col + 1].equals("*")) {
+        while (!tab[x][col + 1].equals(" ")) {
             x--;
         }
 
@@ -98,7 +98,7 @@ public class VerificationFormes {
         }
 
         // Condition pour éviter la superposition
-        if (tab[x][col+1].equals("*")){
+        if (!tab[x][col+1].equals(" ")){
             x--;
         }
 
@@ -117,13 +117,13 @@ public class VerificationFormes {
 
         // Boucle pour remonter la ligne au cas où sa largeur fusionne avec une autre forme
         for (int j = 0; j < 3; j++) {
-            while (tab[x][col + j].equals("*")) {
+            while (!tab[x][col + j].equals(" ")) {
                 x--;
             }
         }
 
         // Condition pour éviter la superposition de la ligne du dessous
-        if (tab[x][col].equals("*") && tab[x][col+2].equals("*")) {
+        if (!tab[x][col].equals(" ") && !tab[x][col+2].equals(" ")) {
             x--;
         }
 
@@ -141,7 +141,7 @@ public class VerificationFormes {
         }
 
         // Condition pour éviter la superposition
-        if (tab[x][col].equals("*")){
+        if (!tab[x][col].equals(" ")){
             x--;
         }
 
@@ -160,7 +160,7 @@ public class VerificationFormes {
         }
 
         // remonte d'une ligne si une forme est déjà présente à l'emplacement
-        while (tab[x][col].equals("*")){
+        while (!tab[x][col].equals(" ")){
             x--;
         }
 
@@ -177,7 +177,7 @@ public class VerificationFormes {
             x++;
         }
 
-        while(tab[x][col+1].equals("*") && x != 10) {
+        while(!tab[x][col+1].equals(" ") && x != 10) {
             x--;
         }
 
@@ -195,7 +195,7 @@ public class VerificationFormes {
         }
 
         // remonte d'une ligne si une forme est déjà présente à l'emplacement
-        while (tab[x][col].equals("*") || tab[x][col+1].equals("*") || tab[x][col+2].equals("*")){
+        while (!tab[x][col].equals(" ") || !tab[x][col+1].equals(" ") || !tab[x][col+2].equals(" ")){
             x--;
         }
 
@@ -212,7 +212,7 @@ public class VerificationFormes {
             x++;
         }
 
-        while(tab[x][col].equals("*") && x != 10) {
+        while(!tab[x][col].equals(" ") || !tab[x][col+1].equals(" ") && x != 10) {
             x--;
         }
 
@@ -230,7 +230,7 @@ public class VerificationFormes {
         }
 
         // remonte d'une ligne si une forme est déjà présente à l'emplacement
-        while (tab[x][col+2].equals("*")){
+        while (!tab[x][col+2].equals(" ")){
             x--;
         }
 
@@ -239,20 +239,24 @@ public class VerificationFormes {
 
     //Tetrimino J1 rotation 90°
     public static int verificationTetriminoJ1(String[][] tab, int col){   // bug de collision sur la derniere ligne de la map ???
-
-        int x = 2;
+        int x = 0;
 
         // Tant qu'il y a de l'espace sous la ligne alors elle descend
-        while(tab[x-1][col].equals(" ") && x != 10) {
+        while(tab[x][col].equals(" ") && tab[x][col+1].equals(" ") && x != 10) {
             x++;
         }
 
-        while(tab[x][col+1].equals("*") && x != 10) {
+        while(!tab[x][col].equals(" ") && !tab[x][col+1].equals(" ") && x != 10) {
+            x--;
+        }
+
+        while (!tab[x][col+1].equals(" ") && x != 10) {
             x--;
         }
 
         return x;
     }
+
 
 
 
@@ -267,7 +271,7 @@ public class VerificationFormes {
         }
 
         // remonte d'une ligne si une forme est déjà présente à l'emplacement
-        while (tab[x][col].equals("*") || tab[x][col+1].equals("*") || tab[x][col+2].equals("*")){
+        while (!tab[x][col].equals(" ") || !tab[x][col+1].equals(" ") || !tab[x][col+2].equals(" ")){
             x--;
         }
 
@@ -279,20 +283,17 @@ public class VerificationFormes {
         int x = 2;
 
         // Tant qu'il y a de l'espace sous la ligne alors elle descend
-        while(tab[x][col].equals(" ") && x != 10) {
+
+        while (tab[x-1][col+1].equals(" ") && x != 10) {
             x++;
         }
 
-        while(tab[x][col].equals("*") && x != 10) {
+        while(!tab[x][col].equals(" ") && x != 10) {
             x--;
         }
-        while (tab[x][col+1].equals("*") && x != 10) {
-            x=x-2;
-        }
-
-
         return x;
     }
+
 
 
 
@@ -308,7 +309,7 @@ public class VerificationFormes {
         }
 
         // Tant qu'il y a une étoile sur les deux étoiles du dessous alors elle remonte
-        while(tab[x][col+1].equals("*") || tab[x][col+2].equals("*") && x != 10) {
+        while(!tab[x][col+1].equals(" ") || !tab[x][col+2].equals(" ") && x != 10) {
             x--;
         }
 
@@ -326,7 +327,7 @@ public class VerificationFormes {
         }
 
         // Tant que il y a une étoile sur la premiere colonne et la deuxieme colonne alors elle remonte
-        while(tab[x][col].equals("*") || tab[x-1][col+1].equals("*") && x != 10) {
+        while(!tab[x][col].equals(" ") || !tab[x-1][col+1].equals(" ") && x != 10) {
             x--;
         }
 
@@ -344,7 +345,7 @@ public class VerificationFormes {
         }
 
         // Tant que il y a une étoile sur les deux étoiles du dessous alors elle remonte
-        while(tab[x][col].equals("*") || tab[x][col+1].equals("*") && x != 10) {
+        while(!tab[x][col].equals(" ") || !tab[x][col+1].equals(" ") && x != 10) {
             x--;
         }
 
@@ -362,7 +363,7 @@ public class VerificationFormes {
         }
 
         // Tant que il y a une étoile sur la premiere colonne et la deuxieme colonne alors elle remonte
-        while(tab[x][col].equals("*") || tab[x-1][col+1].equals("*") && x != 10) {
+        while(!tab[x][col+1].equals(" ")) {
             x--;
         }
 
