@@ -41,7 +41,7 @@ public class Introduction {
 
         while(numberColumn < 4) {
             System.out.println("\nNon, désolée mais c'est impossible de choisir " + numberColumn + " colonne(s)");
-            System.out.print("Choisissez le nombre de colonne (minimum 11) : ");
+            System.out.print("Choisissez le nombre de colonne (minimum 4) : ");
             numberColumn = scanner.nextInt();
         }
     }
